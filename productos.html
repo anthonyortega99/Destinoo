@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Destino</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .productos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .producto {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .producto img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .producto h3 {
+            color: #266371;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .producto p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .producto a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #099FA6;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .producto a:hover {
+            background-color: #266371;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .form-group textarea {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            resize: vertical;
+        }
+        .btn {
+            background-color: #099FA6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #266371;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu container">
+            <a href="index.html" class="logo">Destino</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="images/menu.png" class="menu-icono" alt="Menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reservaciones.html">Reservaciones</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+
+        <div class="header-content container">
+            <div class="header-txt"> 
+                <h1>Nuestros Productos</h1>
+                <p>
+                    Descubre nuestra variedad de productos para llevar contigo en tu aventura.
+                </p>
+                <a href="#productos" class="btn-1">Ver Productos</a>
+            </div>
+        </div>
+
+    </header>
+
+    <section id="productos" class="parallax-section">
+        <div class="container">
+            <div class="productos-container">
+                <div class="producto">
+                    <img src="imagesprotectorsolar.jpg" alt="Protector Solar">
+                    <h3>Protector Solar</h3>
+                    <p>Desde $10 a $30 USD, dependiendo de la marca y el factor de protección.</p>
+                    <a href="#" class="btn-comprar" data-producto="Protector Solar">Comprar</a>
+                </div>
+
+                <div class="producto">
+                    <img src="imagestrajesbano.jpg" alt="Trajes de Baño">
+                    <h3>Trajes de Baño</h3>
+                    <p>Entre $20 y $50 USD, según el diseño y la marca.</p>
+                    <a href="#" class="btn-comprar" data-producto="Trajes de Baño">Comprar</a>
+                </div>
+
+                <div class="producto">
+                    <img src="imagesgafassol.jpg" alt="Gafas de Sol">
+                    <h3>Gafas de Sol</h3>
+                    <p>Desde $15 hasta $100 USD, dependiendo de la marca y la calidad.</p>
+                    <a href="#" class="btn-comprar" data-producto="Gafas de Sol">Comprar</a>
+                </div>
+
+                <div class="producto">
+                    <img src="imagessombrerosygorras.jpg" alt="Sombreros y Gorras">
+                    <h3>Sombreros y Gorras</h3>
+                    <p>Entre $15 y $40 USD, dependiendo del estilo y la calidad del material.</p>
+                    <a href="#" class="btn-comprar" data-producto="Sombreros y Gorras">Comprar</a>
+                </div>
+
+                <div class="producto">
+                    <img src="imagestoallasdeplaya.jpg" alt="Toallas de playa">
+                    <h3>Toallas de playa</h3>
+                    <p>Desde $20 hasta $50 USD, según el tamaño y la calidad del tejido.</p>
+                    <a href="#" class="btn-comprar" data-producto="Toallas de playa">Comprar</a>
+                </div>
+
+                <div class="producto">
+                    <img src="imagessandaliasychanclas.jpg" alt="Sandalias y Chanclas">
+                    <h3>Sandalias y Chanclas</h3>
+                    <p>Entre $10 y $30 USD, dependiendo del diseño y la marca.</p>
+                    <a href="#" class="btn-comprar" data-producto="Sandalias y Chanclas">Comprar</a>
+                </div>
+
+                <!-- Repite este bloque para cada producto -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Compra -->
+    <div id="modal-compra" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Compra de <span id="producto-seleccionado"></span></h2>
+            <form id="formulario-compra">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Confirmar Compra</button>
+                </div>
+                <div id="total-container">
+                    <p>Total: <span id="precio-total"></span> USD</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+            
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Función para obtener el precio según el producto seleccionado
+        function obtenerPrecio(producto, cantidad) {
+            let precio = 0;
+            switch (producto) {
+                case "Protector Solar":
+                    precio = calcularPrecio(10, 30, cantidad);
+                    break;
+                case "Trajes de Baño":
+                    precio = calcularPrecio(20, 50, cantidad);
+                    break;
+                case "Gafas de Sol":
+                    precio = calcularPrecio(15, 100, cantidad);
+                    break;
+                case "Sombreros y Gorras":
+                    precio = calcularPrecio(15, 40, cantidad);
+                    break;
+                case "Toallas de playa":
+                    precio = calcularPrecio(20, 50, cantidad);
+                    break;
+                case "Sandalias y Chanclas":
+                    precio = calcularPrecio(10, 30, cantidad);
+                    break;
+                // Añadir más casos según los productos disponibles
+                default:
+                    break;
+            }
+            return precio;
+        }
+
+        // Función para calcular el precio total según el rango de precios y la cantidad
+        function calcularPrecio(precioMin, precioMax, cantidad) {
+            return (precioMin + ((precioMax - precioMin) / 2)) * cantidad;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnComprar = document.querySelectorAll('.btn-comprar');
+            const modal = document.getElementById('modal-compra');
+            const spanClose = document.querySelector('.close');
+            const formularioCompra = document.getElementById('formulario-compra');
+            const productoSeleccionado = document.getElementById('producto-seleccionado');
+            const precioTotal = document.getElementById('precio-total');
+
+            btnComprar.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const producto = this.getAttribute('data-producto');
+                    productoSeleccionado.textContent = producto;
+                    modal.style.display = 'flex';
+
+                    // Calcular y mostrar el precio total al abrir el modal
+                    const cantidad = parseInt(prompt('Introduzca la cantidad que desea comprar:'));
+                    const precio = obtenerPrecio(producto, cantidad);
+                    precioTotal.textContent = precio.toFixed(2);
+                });
+            });
+
+            spanClose.addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            formularioCompra.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Compra realizada exitosamente. Nos pondremos en contacto contigo.');
+                modal.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

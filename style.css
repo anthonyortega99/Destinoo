@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* font-family: "Roboto Condensed", sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header{
+    background-image: url(images/bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    color: #ffffff;
+    display: block;
+    font-weight: bold;
+}
+
+.menu .navbar ul li a:hover{
+    color: #266371;
+}
+
+.icons {
+    display: flex;
+}
+
+.icons i {
+    font-size: 25px;
+    color: #ffffff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.icons i:hover{
+    color: #266371;
+}
+
+#menu {
+    display: none;
+}
+
+.menu-icono{
+    width: 25px;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+.header-txt{
+    width: 40%;
+}
+
+.header-txt h1 {
+    font-size: 70px;
+    line-height: 80px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #266371;
+    margin-bottom: 25px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.header-txt p {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 13px 20px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #099FA6;
+}
+
+.btn-1:hover {
+    background-color: #266371;
+}
+
+.images {
+    width: 800px;
+    height: 380px;
+    position: absolute;
+    right: 0;
+}
+    
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-context-properties: relative;
+}
+
+.swiper-slide h3 {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    color: #ffffff;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.rows{
+    width: 180px;
+    position: absolute;
+    right: 620px;
+    bottom: 280px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    font-size: 15px;
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+    font-size: 25px;
+    color: #ffffff;
+}
+
+@media(max-width:991px) {
+    .menu{
+        padding: 30px;
+    }
+
+    .menu label {
+        display: initial;
+    }
+
+    .menu .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #3f3f3f48;
+        backdrop-filter: blur(5px);
+        display: none;
+    }
+
+    .menu .navbar ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ .navbar{
+        display: none;
+    }
+
+    .icons{
+        display: none;
+    }
+
+    .header {
+        padding: 80px 30px 50px 30px;
+        align-items: self-start;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-txt{
+        text-align: center;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .header-txt h1{
+        margin-bottom: 30px;
+    }
+
+    .images {
+        position: initial;
+        width: 300px;
+        height: 300px;
+    }
+
+    .rows{
+        display: none;
+    }
+    
+}
+.parallax-section {
+    height: 100vh;
+    background-image: url('bg.jpg'); /* Cambia 'bg.jpg' por el nombre de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fija el fondo para el efecto parallax */
+}
+
+.servicios-container {
+    padding: 80px 20px; /* Ajusta el padding según sea necesario */
+    text-align: center;
+    color: #fff; /* Color de texto para contraste */
+}
+/* styles.css */
+
+body {
+    background-color: #cfe2f3; /* Color azul claro */
+}
+
+.parallax-section {
+    background-image: url('images/bg_services.jpg'); /* Imagen de fondo */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0; /* Ajusta según necesites */
+}
+
+.servicios-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicio {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.servicio img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.servicio h3 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.servicio p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.servicio button {
+    padding: 10px 20px;
+    background-color: #099FA6; /* Color de botón azul */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.servicio button:hover {
+    background-color: #266371; /* Color de botón azul oscuro al pasar el mouse */
+}
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Destino</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Ajusta la fuente según tus preferencias */
+            color: #fff; /* Color de texto general */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .header .menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .menu .logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .header .menu .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header .menu .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .header .menu .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .header-content .btn-1 {
+            display: inline-block;
+            background-color: #3498db; /* Azul */
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-content .btn-1:hover {
+            background-color: #2980b9; /* Azul más oscuro al pasar el cursor */
+        }
+
+        .icons {
+            margin-top: 20px;
+        }
+
+        .icons i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .form-container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el formulario */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1; /* Asegura que el formulario esté encima del fondo */
+        }
+
+        .form-container form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container form input,
+        .form-container form textarea,
+        .form-container form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-container form button {
+            background-color: #3498db; /* Azul */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container form button:hover {
+            background-color: #2980b9; /* Azul más oscuro al pasar el cursor */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu container">
+            <a href="index.html" class="logo">Destino</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="images/menu.png" class="menu-icono" alt="Menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reservaciones.html">Reservaciones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+
+        <div class="header-content container">
+            <div class="header-txt"> 
+                <h1>Contacta con Nosotros</h1>
+                <p>
+                    Estamos aquí para resolver tus dudas y recibir tus comentarios.
+                </p>
+                <a href="#contacto" class="btn-1">Contactar</a>
+            </div>
+        </div>
+
+    </header>
+
+    <div id="contacto" class="form-container container">
+        <form action="enviar_formulario.php" method="POST">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required><br>
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required><br>
+            <input type="text" name="asunto" placeholder="Asunto" required><br>
+            <textarea name="mensaje" placeholder="Tu Mensaje" rows="4" required></textarea><br>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </div>
+
+</body>
+</html>

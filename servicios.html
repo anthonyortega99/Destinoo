@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Destino</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .servicios {
+            background-image: url('images/bg_services.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 50px 0;
+            margin-top: 20px; /* Ajuste para separar del header */
+        }
+
+        .servicios .container {
+            padding: 20px;
+        }
+
+        .servicio {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .servicio:hover {
+            transform: translateY(-5px);
+        }
+
+        .servicio-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .servicio-info {
+            padding: 15px;
+        }
+
+        .servicio-info h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .servicio-info p {
+            color: #666;
+        }
+
+        .btn-comprar {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5bc0de;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-comprar:hover {
+            background-color: #31b0d5;
+        }
+
+        .parallax-bg {
+            background-image: url('images/bg_services.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+        }
+
+        .parallax-bg .container {
+            text-align: center;
+        }
+
+        .parallax-bg h2 {
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .servicios-columnas {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .columna {
+            flex: 1 1 30%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .btn-1 {
+            background-color: #5bc0de; /* Color azul claro */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-1:hover {
+            background-color: #31b0d5; /* Color azul más oscuro al pasar el mouse */
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding-top: 60px; 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background-color: #5bc0de;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #31b0d5;
+        }
+
+        .alert {
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu container">
+            <a href="index.html" class="logo">Destino</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="images/menu.png" class="menu-icono" alt="Menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reservaciones.html">Reservaciones</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+
+        <div class="header-content container">
+            <div class="header-txt"> 
+                <h1>Nuestros Servicios</h1>
+                <p>
+                    Descubre nuestros servicios exclusivos para hacer de tu experiencia algo único.
+                </p>
+                <a href="#servicios" class="btn-1">Ver Servicios</a>
+            </div>
+        </div>
+
+    </header>
+
+    <section id="servicios" class="servicios">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="servicios-columnas">
+                <div class="columna">
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio11.jpg" alt="Excursiones guiadas">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Excursiones guiadas</h3>
+                            <p>Explora las playas locales con guías expertos que te llevarán a descubrir los secretos mejor guardados y las vistas más impresionantes de la región.</p>
+                            <div class="btn-comprar" onclick="openModal('Excursiones guiadas')">Comprar</div>
+                        </div>
+                    </div>
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio2.jpg" alt="Actividades acuáticas">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Actividades acuáticas</h3>
+                            <p>Disfruta de una amplia gama de actividades emocionantes como surf, buceo, snorkel y paddleboarding, adecuadas para todas las edades y niveles de habilidad.</p>
+                            <div class="btn-comprar" onclick="openModal('Actividades acuáticas')">Comprar</div>
+                        </div>
+                    </div>
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio3.jpg" alt="Alquiler de equipos">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Alquiler de equipos</h3>
+                            <p>Ofrecemos alquiler de equipos de alta calidad para actividades acuáticas y deportes de playa, garantizando una experiencia segura y divertida en el agua.</p>
+                            <div class="btn-comprar" onclick="openModal('Alquiler de equipos')">Comprar</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columna">
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio4.jpg" alt="Clases de surf">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Clases de surf</h3>
+                            <p>Aprende a surfear con instructores locales certificados que te guiarán desde tus primeras olas hasta técnicas avanzadas, aprovechando las mejores condiciones de las playas locales.</p>
+                            <div class="btn-comprar" onclick="openModal('Clases de surf')">Comprar</div>
+                        </div>
+                    </div>
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio5.jpg" alt="Servicio de fotografía">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Servicio de fotografía</h3>
+                            <p>Captura momentos inolvidables con sesiones de fotografía profesional en la playa, asegurando recuerdos que perdurarán para toda la vida.</p>
+                            <div class="btn-comprar" onclick="openModal('Servicio de fotografía')">Comprar</div>
+                        </div>
+                    </div>
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio6.jpg" alt="Masajes en la playa">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Masajes en la playa</h3>
+                            <p>Relájate y renueva tus sentidos con masajes terapéuticos realizados en la serenidad de la playa, combinando la tranquilidad del mar con tratamientos rejuvenecedores.</p>
+                            <div class="btn-comprar" onclick="openModal('Masajes en la playa')">Comprar</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columna">
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio7.jpg" alt="Eventos y bodas en la playa">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Eventos y bodas en la playa</h3>
+                            <p>Celebra momentos especiales con eventos privados y bodas espectaculares en escenarios paradisíacos junto al mar, garantizando recuerdos inolvidables.</p>
+                            <div class="btn-comprar" onclick="openModal('Eventos y bodas en la playa')">Comprar</div>
+                        </div>
+                    </div>
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio8.jpg" alt="Rutas gastronómicas">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Rutas gastronómicas</h3>
+                            <p>Embárcate en una experiencia culinaria única con nuestras rutas gastronómicas, explorando los sabores locales y los mejores restaurantes frente al mar.</p>
+                            <div class="btn-comprar" onclick="openModal('Rutas gastronómicas')">Comprar</div>
+                        </div>
+                    </div>
+                    <div class="servicio">
+                        <div class="servicio-img">
+                            <img src="imagesservicio9.jpg" alt="Transporte local">
+                        </div>
+                        <div class="servicio-info">
+                            <h3>Transporte local</h3>
+                            <p>Simplifica tu viaje con nuestro servicio de transporte local, que incluye traslados desde y hacia aeropuertos y destinos locales, asegurando un viaje sin complicaciones.</p>
+                            <div class="btn-comprar" onclick="openModal('Transporte local')">Comprar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Formulario de Compra</h2>
+            <form id="compraForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Número de Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha para el Servicio:</label>
+                    <input type="date" id="fecha" name="fecha">
+                </div>
+                <div class="form-group">
+                    <label for="comentarios">Comentarios Adicionales:</label>
+                    <textarea id="comentarios" name="comentarios"></textarea>
+                </div>
+                <button type="button" class="btn-submit" onclick="submitForm()">Realizar Compra</button>
+            </form>
+            <div id="alertaCompra" class="alert">¡Compra realizada con éxito!</div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Scroll suave al hacer clic en Ver Servicios
+        document.querySelector('.btn-1').addEventListener('click', function() {
+            document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Abrir modal
+        function openModal(servicio) {
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        // Cerrar modal
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        // Validar y enviar formulario
+        function submitForm() {
+            var nombre = document.getElementById('nombre').value;
+            var email = document.getElementById('email').value;
+            var telefono = document.getElementById('telefono').value;
+            var fecha = document.getElementById('fecha').value;
+
+            if (nombre && email && telefono && fecha) {
+                document.getElementById('alertaCompra').style.display = "block";
+                setTimeout(function() {
+                    document.getElementById('myModal').style.display = "none";
+                    document.getElementById('alertaCompra').style.display = "none";
+                    document.getElementById('compraForm').reset();
+                }, 2000);
+            } else {
+                alert('Por favor, complete todos los campos requeridos.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Destino</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="servicios" class="parallax-section">
+        <div class="servicios-container">
+            <!-- Aquí van los servicios con efecto parallax -->
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Formulario de Compra</h2>
+        <form id="compraForm">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad de Productos:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1" required>
+            </div>
+            <div class="form-group">
+                <label for="total">Total a Pagar:</label>
+                <input type="text" id="total" name="total" readonly>
+            </div>
+            <div class="form-group">
+                <label for="comentarios">Comentarios Adicionales:</label>
+                <textarea id="comentarios" name="comentarios"></textarea>
+            </div>
+            <button type="button" class="btn-submit" onclick="realizarCompra()">Realizar Compra</button>
+            <button type="button" class="btn-cancelar" onclick="closeModal()">Cancelar</button>
+        </form>
+        <div id="alertaCompra" class="alert">¡Compra realizada con éxito!</div>
+    </div>
+</div>
+
+

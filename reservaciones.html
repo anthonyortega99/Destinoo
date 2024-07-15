@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones - Destino</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Ajusta la fuente según tu preferencia */
+        }
+
+        /* Estilos específicos para los servicios */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            align-items: stretch;
+            margin-top: 50px; /* Ajuste el margen superior según sea necesario */
+            padding-bottom: 50px; /* Agregado para espacio adicional al final */
+        }
+
+        .service {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .service img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .service-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .service-info h3 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .service-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .btn-2 {
+            display: inline-block;
+            background-color: #3d96d1;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.8rem;
+            border-radius: 3px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+        }
+
+        .btn-2:hover {
+            background-color: #45a049;
+        }
+
+        .header-content {
+            text-align: center;
+            margin-top: 50px;
+            color: #fff;
+        }
+
+        .header-txt {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header-txt h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .header-txt p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-1 {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+        }
+
+        .btn-1:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu container">
+            <a href="index.html" class="logo">Destino</a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="images/menu.png" class="menu-icono" alt="Menu">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reservaciones.html">Reservaciones</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+
+        <div class="header-content container">
+            <div class="header-txt"> 
+                <h1>Reserva tu Experiencia</h1>
+                <p>
+                    Planifica tu visita y asegura tu lugar con nuestras reservaciones.
+                </p>
+                <a href="#reservaciones" class="btn-1">Hacer Reserva</a>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="container" id="reservaciones">
+        <h2 class="text-center">Nuestros Servicios de Reservaciones</h2>
+
+        <div class="services">
+            <div class="service">
+                <img src="imagesservice1.jpg" alt="Alquiler de sombrillas y tumbonas">
+                <div class="service-info">
+                    <h3>Alquiler de sombrillas y tumbonas</h3>
+                    <p>Desde $10 a $30 USD por día, dependiendo del tamaño y la ubicación en la playa.</p>
+                    <a href="#" class="btn-2">Reservar</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="imagesservice2.jpg" alt="Clases de surf o paddleboarding">
+                <div class="service-info">
+                    <h3>Clases de surf o paddleboarding</h3>
+                    <p>Entre $30 y $100 USD por sesión, incluyendo el equipo necesario y la instrucción.</p>
+                    <a href="#" class="btn-2">Reservar</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="imagesservice3.jpg" alt="Excursiones en barco">
+                <div class="service-info">
+                    <h3>Excursiones en barco</h3>
+                    <p>Desde $50 hasta $200 USD por persona, dependiendo de la duración del tour y las actividades incluidas como snorkel o pesca.</p>
+                    <a href="#" class="btn-2">Reservar</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="imagesservice4.jpg" alt="Masajes y tratamientos spa">
+                <div class="service-info">
+                    <h3>Masajes y tratamientos spa</h3>
+                    <p>Entre $50 y $150 USD por sesión, dependiendo del tipo de tratamiento y la duración.</p>
+                    <a href="#" class="btn-2">Reservar</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="imagesservice5.jpg" alt="Alquiler de equipos acuáticos">
+                <div class="service-info">
+                    <h3>Alquiler de equipos acuáticos</h3>
+                    <p>Desde $20 hasta $100 USD por hora, dependiendo del tipo de equipo como kayaks, jet skis o equipos de snorkel.</p>
+                    <a href="#" class="btn-2">Reservar</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="imagesservice6.jpg" alt="Paseos a caballo en la playa">
+                <div class="service-info">
+                    <h3>Paseos a caballo en la playa</h3>
+                    <p>Desde $50 hasta $150 USD por persona, dependiendo de la duración del paseo y la empresa proveedora.</p>
+                    <a href="#" class="btn-2">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para los formularios de reserva -->
+    <div id="modalReserva" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Reserva tu Servicio</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Enviar Reserva</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para abrir y cerrar el modal
+        var modal = document.getElementById("modalReserva");
+
+        // Obtener el botón que abre el modal
+        var btnsReserva = document.querySelectorAll(".btn-2");
+
+        // Obtener el elemento <span> que cierra el modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Cuando el usuario hace clic en un botón "Reservar", abrir el modal
+        btnsReserva.forEach(btn => {
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+        });
+
+        // Cuando el usuario hace clic en <span> (x), cerrar el modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cuando el usuario hace clic fuera del modal, cerrarlo
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
